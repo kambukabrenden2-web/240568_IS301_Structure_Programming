@@ -44,3 +44,209 @@ d. ary[0] = x; is correct. Feedback for others:
 a.	Arrays cannot be passed to functions, because their structure is too complex.
 b.	It is not possible to pass just a row of a two-dimensional array to a function.
 c.	Only the size of the first dimension is needed when a two-dimensional array is declared in a parameter list.
+
+ 
+d.	When an array is passed to a function, it is always passed by reference (only its address is passed).
+e.	When a two-dimensional array is passed to a function, the size of the second dimension must be passed as a value parameter.
+Provide feed for each option why you haven’t chosen them.	(2 marks)
+d. Arrays are always passed by reference (address). Feedback for others:
+a: False (arrays can be passed).
+b: False (rows can be passed).
+c: False (second dimension size is also needed for 2D arrays).
+e: False (size is not passed as a value parameter).
+
+
+6.	Which of the following statements about two-dimensional arrays is true? (1 mark)
+a.	A two-dimensional array can be thought of as an array of one-dimensional arrays.
+b.	Only the size of the second dimension needs to be declared when the array is used as a parameter.
+c.	Two different types can be stored in a two-dimensional array.
+d.	The first dimension is known as the column dimension.
+e.	When passed to a function, the size of the second dimension must be passed as a value parameter.
+Provide feedback why you choose not to choose the other options. (2 marks)
+a. A 2D array is an array of 1D arrays. Feedback for others:
+b: False (both dimensions must be declared).
+c: False (same type required).
+d: False (first dimension is rows).
+e: False (size is not passed as a parameter).
+
+
+Sorting & Searching
+
+7.	The process through which data are arranged according to their values is known as 	.
+(1 mark)
+a.	arranging
+b.	listing
+c.	parsing
+d.	searching
+e.	sorting
+Provide your feedback why you did not choose the other options (2 marks)
+e. sorting is arranging data by values. Feedback for others:
+•	a, b, c, d: Incorrect terms for this context.
+
+
+8.	The 	sort finds the smallest element from the unsorted sublist and swaps it with the element at the beginning of the unsorted data. (1 mark)
+a.	bubble
+b.	exchange
+c.	insertion
+d.	quick
+e.	selection
+Provide feedback for not choosing the other options (2 marks)
+e. selection sort swaps smallest unsorted element. Feedback for others:
+•	a, b, c, d: Other sort methods (bubble, insertion, etc.).
+
+
+9.	The 	search locates the target item by starting at the beginning and moving toward the end of the list. (1 mark)
+a .ascending
+b.	binary
+c.	bubble
+d.	selection
+e.	sequential
+
+Provide feedback for not choosing the other options (2 marks)
+e. sequential search starts at the beginning. Feedback for others:
+
+a, b, c, d: Incorrect (binary starts mid, others are sorts).
+10.	Which of the following statements about a sequential search is false? (1 mark)
+a.	Any array can be searched using the sequential search.
+b.	If the target is not found, every element in the list is tested.
+c.	The efficiency of the sequential search is O(n).
+ 
+d.	The list must be ordered.
+e.	The sequential search is generally recommended only for small lists.
+
+Explain your answer. (2 mark)
+d. Sequential search does not require the list to be ordered. Feedback:
+•	a, b, c, e: True statements about sequential search.
+
+
+11.	Which of the following statements about two-dimensional arrays is true? (1 mark)
+
+a.	A two-dimensional array can be thought of as an array of one-dimensional arrays.
+b.	Only the size of the second dimension needs to be declared when the array is used as a parameter.
+c.	Two different types can be stored in a two-dimensional array.
+d.	The first dimension is known as the column dimension.
+e.	When passed to a function, the size of the second dimension must be passed as a value parameter.
+
+
+Give an explanation on each of the other options (2 marks)
+
+a. A 2D array is an array of 1D arrays. Feedback for others:
+
+b: False (both dimensions must be declared).
+
+c: False (same type required).
+
+d: False (first dimension is rows).
+
+e: False (size is not passed as a parameter).
+
+
+12.	What would be printed by the following program? (1 mark)
+
+#include <stdio.h> int main (void) {
+// Local Declarations
+int list [10] = {0};
+
+// Statements
+for (int i = 0; i < 5; i++) list [2*i + 1] = i + 2;
+for (int i = 0; i < 10; i++) printf("%d\n", list [i]);
+return 0;
+} // main
+Explain the for loop statements (2 marks)
+	0  
+2  
+0  
+3  
+0  
+4  
+0  
+5  
+0  
+Explanation: The loop for (int i = 0; i < 5; i++) assigns values to odd indices (2*i + 1), leaving even indices as 0.
+
+13.	We have two arrays A and B, each of 10 integers. Write a function that tests if every element of array A is equal to its corresponding element in array B. In other words, the function must check if A[0] is equal to B[0], A[1] is equal to B[1], and so forth. The function is to return true if all elements are equal and false if at least one element is not equal.
+(5 marks)
+	#include <stdbool.h>
+bool compareArrays(int A[], int B[], int size) {
+   	          for (int i = 0; i < size; i++) {
+      	                     if (A[i] != B[i]) {
+          			  return false;
+  		      }
+ }
+ 		   return true;
+}
+
+Structures
+14.	Declare a tagged structure for a student record consisting of five fields: student ID(integer), first name (a dynamically allocated string), last name (a dynamically allocated string), total credits completed (integer), and accumulated grade point average (floating-point).
+
+struct Student {
+    int studentID;
+    char* firstName;
+    char* lastName;
+    int totalCredits;
+    float gpa;
+};
+(2 marks)	
+
+
+
+15.	Declare an array of 12 elements. Each element is a structure with three fields. The first field shows the month in numeric form (1 to 12). The second field shows the name of the month (a dynamically allocated string). The third field shows the number of days in the month. Initialize the array.
+
+struct Month {
+    int numeric;
+    char* name;
+    int days;
+};
+
+struct Month year[12] = {
+    {1, "January", 31},
+    {2, "February", 28},
+    // ... initialize all 12 months
+                 };
+
+(2 marks)
+
+
+
+
+
+
+
+ 
+16.	Assume we have declared the following structure:
+typedef struct {
+char x; char* y;
+int z[20]; } FUN;
+Determine which of the following definitions are valid and which are invalid. If invalid, explain the error.
+(3 marks)
+a.	STRUCT FUN f1;
+b.	STRUCT FUN f5[23];
+c.	FUN f3;
+d.	FUN f4 [20];
+
+•	a. Invalid (STRUCT is incorrect; use struct or FUN).
+•	b. Invalid (same as a).
+•	c. Valid (uses typedef name FUN).
+•	d. Valid (array of FUN structures).
+
+
+17.	Write a function that shuffles a deck of cards. The deck of cards is represented by an array of 52 elements. Each element in the array is a structure for one card, as shown below.
+(5 marks)
+
+typedef struct {
+char* suit; // Clubs, Diamonds, Hearts, Spades int value; // Ace, 2..9, Jack, Queen, King
+} CARD;
+typedef CARD DECK [52];
+The function must use a random number to ensure that each shuffle results in a different card sequence. Hint: Generate a random number in the range 0...51, and then exchange the current card with the card in the random position.
+#include <stdlib.h>
+#include <time.h>
+
+void shuffleDeck(DECK deck) {
+    srand(time(NULL));
+    for (int i = 0; i < 52; i++) {
+        int j = rand() % 52;
+        CARD temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
+}
